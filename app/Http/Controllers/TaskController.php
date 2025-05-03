@@ -7,13 +7,13 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    // Show the main view
+    
     public function index()
     {
         return view('tasks.index');
     }
 
-    // AJAX: Fetch tasks with search and pagination
+    
     public function fetchTasks(Request $request)
     {
         $search = $request->input('search');
@@ -31,7 +31,7 @@ class TaskController extends Controller
         ]);
     }
 
-    // AJAX: Store a new task
+    
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -50,7 +50,7 @@ class TaskController extends Controller
         ]);
     }
 
-    // AJAX: Update an existing task
+    
     public function update(Request $request, $id)
     {
         $task = Task::findOrFail($id);
@@ -68,7 +68,7 @@ class TaskController extends Controller
         ]);
     }
 
-    // AJAX: Delete a task
+    
     public function destroy($id)
     {
         $task = Task::findOrFail($id);
@@ -79,7 +79,7 @@ class TaskController extends Controller
         ]);
     }
 
-    // AJAX: Toggle task completion status
+    
     public function toggleComplete($id)
     {
         $task = Task::findOrFail($id);
